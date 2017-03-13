@@ -1,0 +1,18 @@
+.banner {
+  background-color: #fff;
+}
+
+.bannerItem {
+  display: block;
+  width: 100%;
+}
+
+.bannerImg {
+  width: 100%;
+  vertical-align: top;
+}
+
+.slider-frame,
+.slider-list {
+  height: 100%!important;
+}
