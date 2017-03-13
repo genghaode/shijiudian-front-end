@@ -5,6 +5,11 @@ from './Home/reducer'
 
 export { Category }
 from './Category'
+export { initCategoryData }
+from './Category/reducer'
+
+export { ItemList }
+from './ItemList'
 
 export { User }
 from './User'

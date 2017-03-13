@@ -42,5 +42,10 @@ export const pageConfig = {
     'title': '详情',
     'tab': true,
     'headerType': 2
+  },
+  '/itemList': {
+    'title': '列表',
+    'tab': true,
+    'headerType': 2
   }
 }

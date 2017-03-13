@@ -41,3 +41,11 @@ Mock.mock(/\/api\/postLogin/, {
     'status|1': true
   }
 })
+
+Mock.mock(/\/api\/getCategoryData/, {
+  'myData|20': [{
+    'text': '@ctitle',
+    'icon': '@dataImage("100x100", "@name")',
+    'id|+1': 0
+  }]
+})

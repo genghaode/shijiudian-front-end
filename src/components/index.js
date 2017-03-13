@@ -12,3 +12,6 @@ from './FormList'
 
 export { ItemViewContent }
 from './ItemViewContent'
+
+export { CategoryList }
+from './CategoryList'

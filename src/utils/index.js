@@ -1,2 +1,2 @@
-export { fetchTest, fetchBanner, fetchItemList, fetchLogin }
+export { fetchBanner, fetchItemList, fetchLogin, fetchCategory }
 from './fetchMethod'
