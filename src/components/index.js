@@ -9,3 +9,6 @@ from './ItemList'
 
 export { FormList }
 from './FormList'
+
+export { ItemViewContent }
+from './ItemViewContent'

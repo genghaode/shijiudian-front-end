@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import { ActivityIndicator, ListView } from 'antd-mobile'
 import './index.css'
 
@@ -39,7 +40,7 @@ class _ItemList extends Component {
 
     const row = (rowData, sectionID, rowID) => {
       return (
-        <div key = { rowID } className="itemRowWrap">
+        <Link to={{pathname: "/itemView", query:{"id": rowData.id}}} key = { rowID } className="itemRowWrap">
           <div className="itemRowImgWrap">
             <img className="itemRowImg" src={rowData.img} />
           </div>
@@ -47,41 +48,40 @@ class _ItemList extends Component {
             <h3 className="itemRowTitle">{rowData.title}</h3>
             <div className="itemRowInfo">
               <span className="itemRowTime">{rowData.time}</span>
-              <span className="itemRowfowllerNum"><i className="iconfont icon-favorfill"></i> { rowData.fowllerNum }</span>
+              <span className="itemRowfowllerNum"><i className="iconfont icon-xianshikejian"></i> { rowData.fowllerNum }</span>
             </div>
           </div>
-        </div>
+        </Link>
       )
     }
 
-    return ( 
-      <ListView className = "itemListView am-list"
-        dataSource = { this.state.dataSource }
-        renderRow = { row }
-        renderSeparator = { separator }
-        initialListSize = { 10 }
-        pageSize = { 10 }
-        scrollRenderAheadDistance = { 500 }
-        scrollEventThrottle = { 20 }
-        renderFooter = {
-          () => {
-            if (this.props.itemListData.status != 'nomore') {
-              return <ActivityIndicator className="itemListFooter" animating={this.state.isLoading} text="加载中..."/>
-            } else {
-              return <div className="itemListFooter">没有更多数据了</div>
-            }
+    return ( < ListView className = "itemListView am-list"
+      dataSource = { this.state.dataSource }
+      renderRow = { row }
+      renderSeparator = { separator }
+      initialListSize = { 10 }
+      pageSize = { 10 }
+      scrollRenderAheadDistance = { 500 }
+      scrollEventThrottle = { 20 }
+      renderFooter = {
+        () => {
+          if (this.props.itemListData.status != 'nomore') {
+            return <ActivityIndicator className="itemListFooter" animating={this.state.isLoading} text="加载中..."/>
+          } else {
+            return <div className="itemListFooter">没有更多数据了</div>
           }
         }
-        style = {{ height: document.documentElement.clientHeight * 3 / 4 }}
-        onEndReached = {
-          (e) => this.onEndReached(e)
-        }
-        onEndReachedThreshold = { 10 }
-        useBodyScroll 
-      />
+      }
+      style = {
+        { height: document.documentElement.clientHeight * 3 / 4 }
+      }
+      onEndReached = {
+        (e) => this.onEndReached(e)
+      }
+      onEndReachedThreshold = { 10 }
+      useBodyScroll / >
     )
 
   }
 }
 export const ItemList = _ItemList
-

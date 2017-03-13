@@ -19,3 +19,6 @@ export { Login }
 from './Login'
 export { loginStatus }
 from './Login/reducer'
+
+export { ItemView }
+from './ItemView'
