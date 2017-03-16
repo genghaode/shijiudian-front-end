@@ -8,8 +8,11 @@ from './Category'
 export { initCategoryData }
 from './Category/reducer'
 
-export { ItemList }
-from './ItemList'
+export { ItemListPage }
+from './ItemListPage'
+export { itemListCategoryData }
+from './ItemListPage/reducer'
+
 
 export { User }
 from './User'
@@ -27,3 +30,5 @@ from './Login/reducer'
 
 export { ItemView }
 from './ItemView'
+export { itemContent }
+from './ItemView/reducer'

@@ -1,4 +1,4 @@
-import { fetchTest, fetchBanner, fetchItemList } from '../../utils'
+import { fetchBanner, fetchItemList } from '../../utils'
 
 export const getBannerAction = () => {
   return (dispatch, getState) => {
@@ -12,7 +12,7 @@ export const getBannerAction = () => {
 
 export const getItemListLoadAction = () => {
   return (dispatch, getState) => {
-    fetchItemList(getState().itemListData.pageNum).then((res) => {
+    fetchItemList(getState().itemListData.pageNum, 'index').then((res) => {
       // 根据请求回来的值，判断是否还有数据需要加载，这里现在随机生成的true或false
       if (!res.data.status) {
         return dispatch({ type: "itemListNomore" })

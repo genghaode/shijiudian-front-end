@@ -58,8 +58,11 @@
   height: .2rem;
 }
 
-.itemListFooter {
+.main .itemListFooter {
   padding-bottom: 1rem;
+}
+
+.itemListFooter {
   margin: 0 auto;
   width: 100px;
 }
