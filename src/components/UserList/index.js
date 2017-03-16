@@ -18,7 +18,7 @@ class _UserList extends Component {
 				  <Item
 				    arrow="horizontal"
 				    thumb={<i className="iconfont icon-favor"></i>}
-				    onClick={()=>{return this.props.loginStatus != '1'? this._onClick('/login'):this._onClick('/user/favor')}}
+				    onClick={()=>{return this.props.loginStatus != '1'? this._onClick('/login'):this._onClick('/itemList?type=favor')}}
 				  >
 				    我的收藏
 				  </Item>

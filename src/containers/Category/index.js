@@ -28,7 +28,7 @@ class _Category extends Component {
     )
   }
   _onClick(e, index) {
-    this.context.router.push(`/itemList?id=${e.id}`)
+    this.context.router.push(`/itemList?id=${e.id}&type=category`)
   }
 }
 

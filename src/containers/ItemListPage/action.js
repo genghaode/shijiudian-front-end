@@ -3,7 +3,8 @@ import { fetchItemList } from '../../utils'
 export const getItemListDataAction = () => {
   return (dispatch, getState) => {
     const id = getState().routing.locationBeforeTransitions.query.id
-    fetchItemList(getState().itemListCategoryData.pageNum, 'category', id).then((res) => {
+    const type = getState().routing.locationBeforeTransitions.query.type
+    fetchItemList(getState().itemListCategoryData.pageNum, type, id).then((res) => {
       if (!res.data.status) {
         return dispatch({ type: "itemListCategoryNomore" })
       } else {

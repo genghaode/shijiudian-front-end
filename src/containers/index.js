@@ -16,8 +16,6 @@ from './ItemListPage/reducer'
 
 export { User }
 from './User'
-export { Favor }
-from './User/Favor'
 
 export { Login }
 from './Login'
