@@ -64,3 +64,9 @@ Mock.mock(/\/api\/getFowllerFlag/, {
     'fowllerFlag|1': true
   }
 })
+
+Mock.mock(/\/api\/logout/, {
+  "myData": {
+    'status': false
+  }
+})

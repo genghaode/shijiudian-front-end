@@ -18,16 +18,6 @@ export const pageConfig = {
     'tab': false,
     'headerType': 1
   },
-  '/user/settings': {
-    'title': '设置',
-    'tab': true,
-    'headerType': 2
-  },
-  '/user/service': {
-    'title': '客服',
-    'tab': true,
-    'headerType': 2
-  },
   '/user/favor': {
     'title': '我的收藏',
     'tab': true,

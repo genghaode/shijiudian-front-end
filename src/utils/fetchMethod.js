@@ -26,3 +26,7 @@ export const fetchItemContent = (id) => {
 export const fetchFowllerFlag = (id) => {
   return axios.get(`${url}/api/getFowllerFlag?id=${id}`)
 }
+
+export const fetchLogout = () => {
+  return axios.get(`${url}/api/logout`)
+}

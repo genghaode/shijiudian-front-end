@@ -8,26 +8,9 @@ class _UserList extends Component {
     return (
       <div>
       	<WhiteSpace />
-      	<div className="loginBtnWrap" hidden={this.props.loginStatus != '1'? false:true}>
-	      	<Button type="primary" onClick={() => this._onClick('/login')}>登录</Button>
+      	<div className="loginBtnWrap">
+	      	<Button type="primary" loading={this.props.isloading} onClick={this.props.loginClick}>{this.props.loginStatus != '1'?'登录':'退出登录'}</Button>
       	</div>
-      	<WhiteSpace />
-				<List>
-				  <Item 
-				    arrow="horizontal"
-				    thumb={<i className="iconfont icon-settings"></i>}
-				    onClick={()=>this._onClick('/user/settings')}
-				  >
-				    设置
-				  </Item>
-				  <Item
-				    arrow="horizontal"
-				    thumb={<i className="iconfont icon-service"></i>}
-				    onClick={()=>this._onClick('/user/service')}
-				  >
-				    客服
-				  </Item>
-				</List>
 				<WhiteSpace />
 				<List 
 				  renderFooter={() => <div className="userListFooter">版本号</div>}

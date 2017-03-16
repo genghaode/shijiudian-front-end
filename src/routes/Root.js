@@ -20,8 +20,6 @@ export const Root = () => {
 			    <Route path="user">
 				    <IndexRoute	component={User} />
 						<Route path="favor" component={Favor} />
-			    	<Route path="settings" component={Settings} />
-			    	<Route path="service" component={Service} />
 			    </Route>
 			    <Route path="login" component={Login} />
 			    <Route path="itemView" component={ItemView} />
