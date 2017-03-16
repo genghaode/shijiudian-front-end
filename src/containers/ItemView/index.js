@@ -8,11 +8,17 @@ class _ItemView extends Component {
   constructor(props) {
     super(props)
     this.state = ({
-      isloading: false
+      isloading: false,
+      isFowller: false
     })
-    if (!props.itemContent.length) {
-      props.getItemContent(props.location.query.id)
-    }
+    props.getItemContent(props.location.query.id, (data) => {
+      console.log(data)
+      if (data[0].fowllerFlag) {
+        this.setState({
+          isFowller: true
+        })
+      }
+    })
   }
   render() {
     if (!this.props.itemContent.length) {
@@ -25,30 +31,40 @@ class _ItemView extends Component {
       )
     }
     return (
-      <ItemViewContent itemContent={this.props.itemContent[0]} _onClick={()=> this._onClick()} isloading={this.state.isloading}/>
+      <ItemViewContent itemContent={this.props.itemContent[0]} _onClick={()=> this._onClick()} isloading={this.state.isloading} isFowller= {this.state.isFowller} />
     )
   }
   _onClick() {
+    if (!this.props.loginStatus) {
+      this.context.router.push('/login')
+      return;
+    }
     if (!this.state.isloading) {
       this.setState({
         isloading: true
       })
       this.props.onClick(this.props.location.query.id, () => {
         this.setState({
-          isloading: false
+          isloading: false,
+          isFowller: this.props.itemContent[0].fowllerFlag
         })
       })
     }
   }
 }
 
+_ItemView.contextTypes = {
+  router: React.PropTypes.object
+}
+
 export const ItemView = connect((state) => {
   return {
-    itemContent: state.itemContent
+    itemContent: state.itemContent,
+    loginStatus: state.loginStatus
   }
 }, (dispatch) => {
   return {
-    getItemContent: (id) => dispatch(getItemContentAction(id)),
+    getItemContent: (id, cb) => dispatch(getItemContentAction(id, cb)),
     onClick: (id, cb) => dispatch(postFowllerAction(id, cb))
   }
 })(_ItemView)

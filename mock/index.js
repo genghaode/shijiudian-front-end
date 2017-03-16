@@ -51,12 +51,13 @@ Mock.mock(/\/api\/getCategoryData/, {
 })
 
 Mock.mock(/\/api\/getItemContent/, {
-  "myData": {
+  "myData": [{
     'content': '@cparagraph(30, 50)',
     'fowllerFlag|1': true,
     'time': '@datetime()',
     'title': '@ctitle'
-  }
+  }],
+  'status|1': true
 })
 Mock.mock(/\/api\/getFowllerFlag/, {
   "myData": {
