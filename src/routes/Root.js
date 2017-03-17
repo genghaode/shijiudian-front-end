@@ -3,7 +3,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Provider } from 'react-redux'
 import { store } from '../redux/store'
-import { Home, Category, User, Service, Settings, Favor, Login, ItemView, ItemListPage } from '../containers'
+import { Home, Category, User, Service, Settings, Favor, Login, ItemView, ItemListPage, Search } from '../containers'
 import { App } from '../layouts'
 
 const history = syncHistoryWithStore(browserHistory, store)
@@ -23,8 +23,8 @@ export const Root = () => {
 			    </Route>
 			    <Route path="login" component={Login} />
 			    <Route path="itemView" component={ItemView} />
-			    <Route path="itemList" component={ItemListPage
-} />
+			    <Route path="itemList" component={ItemListPage} />
+			    <Route path="search" component={Search} />
 		    </Route>
 	  	</Router>
 	  </Provider>

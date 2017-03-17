@@ -9,6 +9,8 @@ class _ItemListPage extends Component {
     super(props)
     if (props.itemLisCategorytData.status != 'nomore' && !props.itemLisCategorytData.data.length) {
       props.getItemListLoadData()
+    } else if (props.type == 'search') {
+      props.getItemListLoadData()
     }
   }
   render() {
@@ -28,7 +30,8 @@ class _ItemListPage extends Component {
 
 export const ItemListPage = connect((state) => {
   return {
-    itemLisCategorytData: state.itemListCategoryData
+    itemLisCategorytData: state.itemListCategoryData,
+    type: state.routing.locationBeforeTransitions.query.type
   }
 }, (dispatch) => {
   return {

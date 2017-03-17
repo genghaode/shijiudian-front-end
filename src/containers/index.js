@@ -26,3 +26,6 @@ export { ItemView }
 from './ItemView'
 export { itemContent }
 from './ItemView/reducer'
+
+export { Search }
+from './Search'

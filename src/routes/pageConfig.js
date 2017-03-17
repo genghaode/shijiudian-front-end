@@ -37,5 +37,10 @@ export const pageConfig = {
     'title': '列表',
     'tab': true,
     'headerType': 2
+  },
+  '/search': {
+    'title': '搜索',
+    'tab': true,
+    'headerType': 3
   }
 }
