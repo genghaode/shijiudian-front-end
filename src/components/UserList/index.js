@@ -18,16 +18,13 @@ class _UserList extends Component {
 				  <Item
 				    arrow="horizontal"
 				    thumb={<i className="iconfont icon-favor"></i>}
-				    onClick={()=>{return this.props.loginStatus != '1'? this._onClick('/login'):this._onClick('/itemList?type=favor')}}
+				    onClick={this.props.myFavorClick}
 				  >
 				    我的收藏
 				  </Item>
 				</List>
     	</div>
     )
-  }
-  _onClick(path) {
-    this.context.router.push(path)
   }
 }
 

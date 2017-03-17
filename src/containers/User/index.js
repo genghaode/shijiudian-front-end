@@ -13,12 +13,11 @@ class _User extends Component {
   render() {
     return (
       <div>
-        <UserList loginStatus={this.props.loginStatus} loginClick={()=> this._loginClick()} isloading={this.state.isloading} />
+        <UserList loginStatus={this.props.loginStatus} loginClick={()=> this._loginClick()} isloading={this.state.isloading} myFavorClick={()=>_myFavorClick()}/>
       </div>
     )
   }
   _loginClick() {
-    console.log(this)
     if (this.props.loginStatus == '1') {
       if (this.state.isloading) {
         return;
@@ -31,6 +30,14 @@ class _User extends Component {
           isloading: false
         })
       })
+    } else {
+      this.context.router.push('/login')
+    }
+  }
+  _myFavorClick() {
+    if (this.props.loginStatus == '1') {
+      this.props.initPageNum()
+      this.context.router.push('/itemList?type=favor')
     } else {
       this.context.router.push('/login')
     }
@@ -48,5 +55,6 @@ export const User = connect((state) => {
 }, (dispatch) => {
   return {
     logout: (cb) => dispatch(logoutAction(cb))
+    initPageNum: () => dispatch({ type: 'initPageNum' })
   }
 })(_User)
