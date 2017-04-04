@@ -13,7 +13,7 @@ class _Home extends Component {
     if (!props.bannerData.length) {
       props.getBannerData()
     }
-    if (props.itemListData.status != 'nomore' && !props.itemListData.data.length) {
+    if (props.itemListData.items != 'nomore' && !props.itemListData.data.length) {
       props.getItemListLoadData()
     }
   }

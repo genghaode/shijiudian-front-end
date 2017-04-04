@@ -21,9 +21,12 @@ class _Category extends Component {
         />
       )
     }
+    let categoryData = this.props.initCategoryData.map((item) => {
+      return { id: item.id, text: item.name, icon: item.image }
+    })
     return (
       <div>
-        <CategoryList initCategoryData={this.props.initCategoryData} onClick={(e, index) => this._onClick(e, index)}/>
+        <CategoryList initCategoryData={categoryData} onClick={(e, index) => this._onClick(e, index)}/>
       </div>
     )
   }

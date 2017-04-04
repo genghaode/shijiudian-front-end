@@ -6,7 +6,7 @@ class _CategoryList extends Component {
   render() {
     return (<Grid className = "categoryWrap"
       data = { this.props.initCategoryData }
-      columnNum = { 3 }
+      columnNum = { 2 }
       onClick = { this.props.onClick }
       hasLine = { false }
       />)

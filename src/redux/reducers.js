@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import { bannerData, itemListData, loginStatus, initCategoryData, itemListCategoryData, itemContent } from '../containers'
+import { bannerData, itemListData, loginStatus, initCategoryData, itemListCategoryData, itemContent, itemListCollectionData } from '../containers'
 
 export default combineReducers({
   routing: routerReducer,
@@ -9,5 +9,6 @@ export default combineReducers({
   loginStatus,
   initCategoryData,
   itemListCategoryData,
-  itemContent
+  itemContent,
+  itemListCollectionData
 })

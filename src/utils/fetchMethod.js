@@ -5,26 +5,26 @@ if (__PROD_DEV__) {
 }
 
 export const fetchBanner = () => {
-  return axios.get(`${url}/api/getBanner`)
+  return axios.get(`${url}/api/banner`)
 }
 
-export const fetchItemList = (pageNum, type, id) => {
-  return axios.get(`${url}/api/getItemList?pageNum=${pageNum}&type=${type}&id=${id}`)
+export const fetchItem = (start, take, type, key) => {
+  return axios.get(`${url}/api/item?start=${start}&take=${take}&type=${type}&key=${key}`)
 }
 
 export const fetchLogin = (obj) => {
-  return axios.post(`${url}/api/postLogin`, { 'name': obj.name, 'pwd': obj.pwd })
+  return axios.get(`${url}/api/login?mobile=${obj.mobile}&password=${obj.password}`)
 }
 
 export const fetchCategory = () => {
-  return axios.get(`${url}/api/getCategoryData`)
+  return axios.get(`${url}/api/category`)
 }
 
-export const fetchItemContent = (id) => {
-  return axios.get(`${url}/api/getItemContent?id=${id}`)
+export const fetchItemView = (key) => {
+  return axios.get(`${url}/api/itemView?key=${key}`)
 }
-export const fetchFowllerFlag = (id) => {
-  return axios.get(`${url}/api/getFowllerFlag?id=${id}`)
+export const fetchCollection = (key) => {
+  return axios.put(`${url}/api/collection?key=${key}`)
 }
 
 export const fetchLogout = () => {

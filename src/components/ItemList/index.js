@@ -40,15 +40,14 @@ class _ItemList extends Component {
 
     const row = (rowData, sectionID, rowID) => {
       return (
-        <Link to={{pathname: "/itemView", query:{"id": rowData.id}}} key = { rowID } className="itemRowWrap">
+        <Link to={{pathname: "/itemView", query:{"key": rowData.id}}} key = { rowID } className="itemRowWrap">
           <div className="itemRowImgWrap">
-            <img className="itemRowImg" src={rowData.img} />
+            <img className="itemRowImg" src={rowData.image} />
           </div>
           <div className="itemRowInfoWrap">
             <h3 className="itemRowTitle">{rowData.title}</h3>
             <div className="itemRowInfo">
-              <span className="itemRowTime">{rowData.time}</span>
-              <span className="itemRowfowllerNum"><i className="iconfont icon-xianshikejian"></i> { rowData.fowllerNum }</span>
+              <span className="itemRowTime">{rowData.create_time}</span>
             </div>
           </div>
         </Link>

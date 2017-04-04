@@ -6,67 +6,76 @@ Mock.setup({
   timeout: '1000-2000'
 })
 
-Mock.mock(/\/api\/test/, {
-  'myData|10': [{
-    'storeName': '@name',
-    'storeAddress': '@city(true)',
-    'fowllerNum|0-10000': 10,
-    'fowllerFlag|1': true,
-    'img': '@dataImage("450x300", "@name")',
-    'id|+1': 0
-  }]
-})
-
-Mock.mock(/\/api\/getBanner/, {
-  'myData|5': [{
+Mock.mock(/\/api\/banner/, {
+  'data|5': [{
     'url': '',
-    'img': '@dataImage("540x260", "@name")',
-    'id|+1': 0
-  }]
+    'img': '@dataImage("400x199", "@name")',
+    'id|+1': 0,
+    'weight': 0
+  }],
+  code: 0,
+  errorMessage: ''
 })
 
-Mock.mock(/\/api\/getItemList/, {
-  "myData|10": [{
+Mock.mock(/\/api\/itemView/, {
+  'data': {
     'title': '@ctitle',
-    'fowllerNum|0-10000': 10,
-    'img': '@dataImage("80x80", "@name")',
-    'time': '@datetime()',
-    'id|+1': 0
-  }],
-  'status|1': true
+    'author': 'genghaode',
+    'image': '@dataImage("80x80", "@name")',
+    'create_time': '@datetime()',
+    'content': ['内容'],
+    category: '1',
+    isCollection: false,
+    'id': 1
+  },
+  code: 0,
+  errorMessage: ''
 })
 
-Mock.mock(/\/api\/postLogin/, {
-  "myData": {
-    'status|1': true
-  }
+Mock.mock(/\/api\/item/, {
+  "data": {
+    'items|10': [{
+      'title': '@ctitle',
+      'author': 'genghaode',
+      'image': '@dataImage("80x80", "@name")',
+      'create_time': '@datetime()',
+      'content': ['内容'],
+      category: '1',
+      'id|+1': 0
+    }],
+    'total': 20
+  },
+  code: 0,
+  errorMessage: '没有数据了'
 })
 
-Mock.mock(/\/api\/getCategoryData/, {
-  'myData|20': [{
-    'text': '@ctitle',
-    'icon': '@dataImage("100x100", "@name")',
+Mock.mock(/\/api\/login/, {
+  "data": null,
+  'code': 0,
+  'errorMessage': '登录成功'
+})
+
+Mock.mock(/\/api\/category/, {
+  'code': 0,
+  errorMessage: '',
+  'data|6': [{
+    'name': '@ctitle',
+    'image': '@dataImage("100x100", "@name")',
     'id|+1': 0
   }]
 })
 
-Mock.mock(/\/api\/getItemContent/, {
-  "myData": [{
-    'content': '@cparagraph(30, 50)',
-    'fowllerFlag|1': true,
-    'time': '@datetime()',
-    'title': '@ctitle'
-  }],
-  'status|1': true
-})
-Mock.mock(/\/api\/getFowllerFlag/, {
-  "myData": {
-    'fowllerFlag|1': true
-  }
+
+Mock.mock(/\/api\/collection/, {
+  "code": 0,
+  data: {
+    'isCollection': false
+  },
+  errorMessage: ''
 })
 
 Mock.mock(/\/api\/logout/, {
-  "myData": {
-    'status': false
-  }
+  code: 0,
+  data: null,
+  errorMessage: '退出成功',
 })

@@ -1,15 +1,16 @@
-import { fetchItemContent, fetchFowllerFlag } from '../../utils'
+import { fetchItemView, fetchCollection } from '../../utils'
 
 export const getItemContentAction = (id, cb) => {
   return (dispatch, getState) => {
-    fetchItemContent(id).then((res) => {
-      cb(res.data.myData)
-      if (res.data.status) {
-        dispatch({ type: 'loginSeccess' })
-      } else {
-        dispatch({ type: "loginError" })
-      }
-      return dispatch({ type: 'getItemContent', data: res.data.myData, loginStatus: res.data.status })
+    fetchItemView(id).then((res) => {
+      cb(res.data.data)
+      // if (res.data.code == 0) {
+      //   dispatch({ type: 'loginSeccess' })
+      // } else {
+      //   dispatch({ type: "loginError" })
+      // }
+
+      return dispatch({ type: 'getItemContent', data: res.data.data })
     }).catch((err) => {
       console.log(err)
     })
@@ -18,9 +19,11 @@ export const getItemContentAction = (id, cb) => {
 
 export const postFowllerAction = (id, cb) => {
   return (dispatch, getState) => {
-    fetchFowllerFlag(id).then((res) => {
-      dispatch({ type: 'fowllerFlag', fowllerFlag: res.data.myData.fowllerFlag })
-      return cb()
+    fetchCollection(id).then((res) => {
+      if (res.data.code == 0) {
+        dispatch({ type: 'fowllerFlag', fowllerFlag: res.data.data.isCollection })
+      }
+      return cb(res.data.code)
     }).catch((err) => {
       console.log(err)
     })

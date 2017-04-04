@@ -9,12 +9,12 @@ export const Banner = (props) => {
 
   return (
 
-    <Carousel style={{height: window.innerWidth*0.48}} className="banner" autoplay infinite dots>
+    <Carousel style={{height: window.innerWidth*0.4975}} className="banner" autoplay infinite dots>
    {
         bannerData.map((item, index) => {
           return (
             <Link to={item.url} className="bannerItem" key={index}>
-              <img src={item.img} className="bannerImg" />
+              <img src={item.image} className="bannerImg" />
             </Link>
           )
         })

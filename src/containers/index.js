@@ -10,7 +10,7 @@ from './Category/reducer'
 
 export { ItemListPage }
 from './ItemListPage'
-export { itemListCategoryData }
+export { itemListCategoryData, itemListCollectionData }
 from './ItemListPage/reducer'
 
 

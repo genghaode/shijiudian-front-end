@@ -10,7 +10,11 @@ class _ItemViewContent extends Component {
       <div className="itemViewWrap">
         <h2 className="itemViewTitle">{title}</h2>
         <span className="itemViewTime">{time}</span>
-        <p className="itemViewContent">{content}</p>
+        {
+          content.map((item, i)=>{
+            return <p key={i} className="itemViewContent">{item}</p>
+          })
+        }
         <Button type="primary" loading={this.props.isloading} className="fowllerBtn" onClick={this.props._onClick}>{this.props.isFowller?<i className="iconfont icon-favorfill">取消收藏</i>: <i className="iconfont icon-favor">收藏</i>}</Button>
       </div>
     )

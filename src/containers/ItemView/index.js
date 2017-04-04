@@ -11,9 +11,8 @@ class _ItemView extends Component {
       isloading: false,
       isFowller: false
     })
-    props.getItemContent(props.location.query.id, (data) => {
-      console.log(data)
-      if (data[0].fowllerFlag) {
+    props.getItemContent(props.location.query.key, (data) => {
+      if (data.isCollection) {
         this.setState({
           isFowller: true
         })
@@ -21,7 +20,7 @@ class _ItemView extends Component {
     })
   }
   render() {
-    if (!this.props.itemContent.length) {
+    if (!this.props.itemContent.id) {
       return (
         <ActivityIndicator
           animating="false"
@@ -31,7 +30,7 @@ class _ItemView extends Component {
       )
     }
     return (
-      <ItemViewContent itemContent={this.props.itemContent[0]} _onClick={()=> this._onClick()} isloading={this.state.isloading} isFowller= {this.state.isFowller} />
+      <ItemViewContent itemContent={this.props.itemContent} _onClick={()=> this._onClick()} isloading={this.state.isloading} isFowller= {this.state.isFowller} />
     )
   }
   _onClick() {
@@ -43,10 +42,14 @@ class _ItemView extends Component {
       this.setState({
         isloading: true
       })
-      this.props.onClick(this.props.location.query.id, () => {
+      this.props.onClick(this.props.location.query.key, (code) => {
+        if (code == 1000) {
+          this.context.router.push('/login')
+          return;
+        }
         this.setState({
           isloading: false,
-          isFowller: this.props.itemContent[0].fowllerFlag
+          isFowller: this.props.itemContent.isCollection
         })
       })
     }

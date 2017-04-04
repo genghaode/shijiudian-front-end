@@ -30,7 +30,7 @@ class _Login extends Component {
     })
     if (this.state.name != '' && this.state.pwd != '') {
       this.props.postLogin((loginStatus) => {
-        if (loginStatus == 1) {
+        if (loginStatus == 0) {
           // Toast.success('登录成功', 5)
           sessionStorage.setItem('loginStatus', '1')
           this.context.router.goBack()
@@ -41,7 +41,7 @@ class _Login extends Component {
         this.setState({
           isloading: false
         })
-      }, { name: this.state.name, pwd: this.state.pwd })
+      }, { mobile: this.state.name, password: this.state.pwd })
     } else {
       this.setState({
         isloading: false
